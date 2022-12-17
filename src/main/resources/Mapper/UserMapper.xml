@@ -13,42 +13,5 @@
         (#{userId} ,#{password} ,#{password} ,#{userSex})
     </insert>
 
-<!--    <update id="Lock" parameterType="String">-->
-<!--        update user set state=0 where userId=#{userId}</update>-->
-
-<!--    <update id="UpdatePW" parameterType="com.example.java_ee.entity.User">-->
-<!--        update user set password=#{password} where userId=#{userId}</update>-->
-
-<!--    <select id="GetImage" resultType="hashmap" parameterType="String">-->
-<!--        select CONCAT(avatar) from users where phone=#{phone}</select>-->
-
-<!--    <delete id="DeleteU" parameterType="String">-->
-<!--        delete from user where userId=#{userId}</delete>-->
-
-<!--    <update id="UpdateU" parameterType="com.example.java_ee.entity.User">-->
-<!--        update user set userName=#{userName},-->
-<!--        <if test="avatar != null">-->
-<!--                userImg=LOAD_FILE(#{avatar}),-->
-<!--        </if>-->
-<!--        sex=#{sex},brithday=#{brithday},userId=#{userId},address=#{address},-->
-<!--        R_id=#{r_id},state=#{state} where uid=#{uid}</update>-->
-
-<!--    <select id="findTotalCount" parameterType="java.util.Map" resultType="java.lang.Integer">-->
-<!--        select count(*) from user <where>-->
-<!--        <if test="map != null and map.name != 'ul' ">-->
-<!--            <if test="map.name != null and map.name != '' ">-->
-<!--                name like CONCAT(CONCAT('%',#{map.name}),'%')-->
-<!--            </if>-->
-<!--        </if>-->
-<!--        </where></select>-->
-
-<!--    <select id="findByPage" parameterType="java.util.Map" resultType="com.example.java_ee.entity.User">-->
-<!--        select * from user <where>-->
-<!--            <if test="map != null and map.name != 'ul' ">-->
-<!--                <if test="map.name != null and map.name != '' ">-->
-<!--                    name like CONCAT(CONCAT('%',#{map.name}),'%')-->
-<!--                </if>-->
-<!--            </if>-->
-<!--        </where>limit #{start},#{rows}</select>-->
 </mapper>
 

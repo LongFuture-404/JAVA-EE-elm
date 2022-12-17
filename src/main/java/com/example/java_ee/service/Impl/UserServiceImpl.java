@@ -1,19 +1,11 @@
 package com.example.java_ee.service.Impl;
 
-//import com.example.java_ee.Selectpage.UserSelectPage;
-//import com.example.java_ee.dao.PriDao;
 import com.example.java_ee.dao.UserDao;
-//import com.example.java_ee.entity.PageBean;
 import com.example.java_ee.entity.User;
-//import com.example.java_ee.entity.permissions;
 import com.example.java_ee.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Service("userServiceImpl")
 public class UserServiceImpl implements UserService {

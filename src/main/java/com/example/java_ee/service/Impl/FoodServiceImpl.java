@@ -1,7 +1,6 @@
 package com.example.java_ee.service.Impl;
 
 import com.example.java_ee.dao.FoodDao;
-import com.example.java_ee.dao.LoginDao;
 import com.example.java_ee.entity.Food;
 import com.example.java_ee.service.FoodService;
 import org.springframework.stereotype.Service;

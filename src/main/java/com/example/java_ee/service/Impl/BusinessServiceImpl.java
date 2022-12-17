@@ -1,14 +1,12 @@
 package com.example.java_ee.service.Impl;
 
 import com.example.java_ee.dao.BusinessDao;
-import com.example.java_ee.dao.CartDao;
 import com.example.java_ee.entity.Business;
 import com.example.java_ee.service.BusinessService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 
 @Service("businessServiceImpl")
 public class BusinessServiceImpl implements BusinessService {
@@ -16,11 +14,21 @@ public class BusinessServiceImpl implements BusinessService {
     BusinessDao businessDao;
     @Override
     public List<Business> SelectBusinessByOrderTypeId(Integer orderTypeId) {
-        return businessDao.SelectByOrderTypeId(orderTypeId);
+        try{
+            return businessDao.SelectByOrderTypeId(orderTypeId);
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 
     @Override
     public Business SelectBusinessByBusinessId(Integer businessId) {
-        return businessDao.SelectByBusinessId(businessId);
+        try {
+            return businessDao.SelectByBusinessId(businessId);
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 }

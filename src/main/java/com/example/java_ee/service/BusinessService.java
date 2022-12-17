@@ -3,7 +3,6 @@ package com.example.java_ee.service;
 import com.example.java_ee.entity.Business;
 
 import java.util.List;
-import java.util.Map;
 
 public interface BusinessService {
 

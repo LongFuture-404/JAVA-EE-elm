@@ -1,7 +1,6 @@
 package com.example.java_ee.service.Impl;
 
 import com.example.java_ee.dao.CartDao;
-import com.example.java_ee.dao.UserDao;
 import com.example.java_ee.entity.Cart;
 import com.example.java_ee.service.CartService;
 import org.springframework.stereotype.Service;

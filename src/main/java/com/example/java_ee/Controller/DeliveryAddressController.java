@@ -1,8 +1,6 @@
 package com.example.java_ee.Controller;
 
-import com.example.java_ee.entity.User;
 import com.example.java_ee.service.DeliveryAddressService;
-import com.example.java_ee.service.UserService;
 import org.springframework.web.bind.annotation.*;
 import com.example.java_ee.entity.DeliveryAddress;
 
