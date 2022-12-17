@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.java_ee.dao.DeliveryAddressDao">
+
+    <insert id="Insert" parameterType="com.example.java_ee.entity.DeliveryAddress">
+        insert into deliveryaddress(contactName,contactSex,contactTel,address,userId) values
+            (#{contactName} ,#{contactSex} ,#{contactTel} ,#{address} ,#{userId})
+    </insert>
+
+    <update id="Update" parameterType="com.example.java_ee.entity.DeliveryAddress">
+        update deliveryaddress set contactName=#{contactName},contactSex=#{contactSex}
+        ,contactTel=#{contactTel},address=#{address} where daId=#{daId}
+    </update>
+
+    <delete id="Remove" parameterType="Integer">
+        delete from deliveryaddress where daId=#{daId}
+    </delete>
+
+    <select id="Select" parameterType="String" resultType="com.example.java_ee.entity.DeliveryAddress">
+        select * from deliveryaddress where userId=#{userId}
+    </select>
+
+    <select id="SelectSingle" parameterType="Integer" resultType="com.example.java_ee.entity.DeliveryAddress">
+        select * from deliveryaddress where daId=#{daId}
+    </select>
+
+</mapper>

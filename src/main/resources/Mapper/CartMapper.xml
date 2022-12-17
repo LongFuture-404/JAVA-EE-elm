@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.java_ee.dao.CartDao">
+
+    <select id="Select" parameterType="com.example.java_ee.entity.Cart" resultType="java.util.Map">
+        select * from cart left join food on cart.foodId=food.foodId and cart.businessId=food.businessId<where>
+            <if test="businessId != null">
+                cart.businessId=#{businessId} and userId=#{userId}
+            </if>
+            <if test="businessId == null">
+                cart.userId=#{userId}
+            </if>
+        </where></select>
+
+    <insert id="Insert" parameterType="com.example.java_ee.entity.Cart">
+        insert into cart (foodId,businessId,userId,quantity) value (#{foodId} ,#{businessId} , #{userId}, 1)
+    </insert>
+
+    <update id="Update" parameterType="com.example.java_ee.entity.Cart">
+        update cart set quantity=#{quantity} where foodId=#{foodId} and businessId=#{businessId} and userId=#{userId}
+    </update>
+
+    <delete id="Remove" parameterType="com.example.java_ee.entity.Cart">
+        delete from cart where foodId=#{foodId} and businessId=#{businessId} and userId=#{userId}
+    </delete>
+
+</mapper>
