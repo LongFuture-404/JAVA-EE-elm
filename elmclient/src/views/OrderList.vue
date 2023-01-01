@@ -94,7 +94,6 @@
           dataInfo[orderId].child.push(item);
         });
         let list = Object.values(dataInfo);
-        console.log(list)
 				for(let orders of list){
 					orders.isShowDetailet = false;
 				}

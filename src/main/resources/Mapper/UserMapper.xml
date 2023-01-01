@@ -10,8 +10,7 @@
 
     <insert id="Insert" parameterType="com.example.java_ee.entity.User">
         insert into user(userId,password,userName,userSex) values
-        (#{userId} ,#{password} ,#{password} ,#{userSex})
+        (#{userId} ,#{password} ,#{userName} ,#{userSex})
     </insert>
 
 </mapper>
-

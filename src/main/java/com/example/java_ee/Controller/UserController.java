@@ -24,9 +24,7 @@ public class UserController {
     @RequestMapping("/getUserByIdByPass")
     public User login(@RequestParam(value = "userId") String acount,
                       @RequestParam(value = "password") String pwd) throws Exception {
-        //调用service层  (账号以及密码同时传入service/dao/)
         User user=service.UserSelect(acount);
-        //判定账号是否存在
         if(user!=null && user.getPassword().equals(pwd)){
             return user;
         }
@@ -34,8 +32,6 @@ public class UserController {
             return null;
         }
 
-//        List<permissions> userPri= service.getUserPri(user.getR_id());
-//        user.setPriList(userPri);
     }
     @ResponseBody
     @RequestMapping("/getUserById")

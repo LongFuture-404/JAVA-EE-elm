@@ -9,26 +9,28 @@
 		<!-- 订单信息部分 -->
 		<h3>订单信息：</h3>
 		<div class="order-info">
-      <li v-for="item in orders.slice(1)" style="list-style:none;">
+      <li v-for="item in orders" style="list-style:none;">
 			<p>
-				{{item.businessName}}
+				{{item.child[0].businessName}}
 				<i class="fa fa-caret-down" @click="detailetShow"></i>
 			</p>
-			<p>&#165;{{item.orderTotal}}</p>
+			<p>&#165;{{item.child[0].orderTotal}}</p>
       </li>
 		</div>
 
 		<!-- 订单明细部分 -->
+    <li v-for="item in orders" style="list-style:none;">
 		<ul class="order-detailet" v-show="isShowDetailet">
-			<li v-for="item in orders">
-				<p>{{item.foodName}} x {{item.quantity}}</p>
-				<p>&#165;{{item.foodPrice*item.quantity}}</p>
-			</li>
-			<li v-for="item in orders.slice(1)">
-				<p>配送费</p>
-				<p>&#165;{{item.deliveryPrice}}</p>
-			</li>
+        <li v-for="otem in item.child">
+          <p>{{otem.foodName}} x {{otem.quantity}}</p>
+          <p>&#165;{{otem.foodPrice*otem.quantity}}</p>
+        </li>
+        <li>
+          <p>配送费</p>
+          <p>&#165;{{item.child[0].deliveryPrice}}</p>
+        </li>
 		</ul>
+    </li>
 
 		<!-- 支付方式部分 -->
 		<ul class="payment-type">
@@ -65,7 +67,24 @@
 			this.$axios.post('OrdersController/getOrdersById',this.$qs.stringify({
 				orderId:this.orderId
 			})).then(response=>{
-				this.orders = response.data;
+				let result = response.data;
+        let dataInfo = {};
+        result.forEach((item, index) => {
+          let { orderId } = item;
+          if (!dataInfo[orderId]) {
+            dataInfo[orderId] = {
+              orderId,
+              child: []
+            }
+          }
+          dataInfo[orderId].child.push(item);
+        });
+        let list = Object.values(dataInfo);
+        console.log(list)
+        for(let orders of list){
+          orders.isShowDetailet = false;
+        }
+        this.orders = list;
 			}).catch(error=>{
 				console.error(error);
 			});
